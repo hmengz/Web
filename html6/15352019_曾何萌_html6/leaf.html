@@ -1,0 +1,105 @@
+<!DOCTYPE  html>
+<html lang="zh-cn">
+   <head>
+      <meta charset="utf-8"/>
+      <title>This is my title</title>
+      <style>
+         .leaf {
+             width:40px;
+             height:40px;
+             background-image: url('images/leaf.gif');
+             background-size: cover;
+         }
+         #bk {
+             width:600px;
+             height:600px;
+             margin:0 auto;
+             padding:20px;
+             background-image: url('images/leaf_bk.jpg');
+             position: relative;
+         }
+
+         @keyframes myfirst {
+         0%{
+            opacity: 0;
+          }
+          10%{
+            opacity: 1;
+          }
+          60%{
+            transform: translate(0px, 250px) rotateX(200deg) rotateY(200deg);
+            opacity: 1;
+          }
+          100%{
+            transform: translate(0px, 500px) rotateX(350deg) rotateY(350deg);
+            opacity: 0;
+          }
+         }
+         @keyframes mysecond {
+         }
+
+         #d1 {
+             position: absolute;
+             left: 75px;
+             animation: myfirst 3s linear infinite;
+         }
+
+         #d2 {
+            position: absolute;
+             left: 150px;
+             animation: myfirst 3s linear 0.5s infinite;
+         }
+
+         #d3 {
+            position: absolute;
+             left: 225px;
+            animation: myfirst 2s linear 1s infinite;
+         }
+
+         #d4 {
+            position: absolute;
+             left: 300px;
+            animation: myfirst 3s linear 1.5s infinite;
+         }
+
+         #d5 {
+            position: absolute;
+             left: 375px;
+            animation: myfirst 3s linear 2s infinite;
+         }
+
+         #d6 {
+            position: absolute;
+             left: 450px;
+            animation: myfirst 3s linear infinite;
+         }
+
+         #d7 {
+            position: absolute;
+             left: 525px;
+            animation: myfirst 3s linear 1s infinite;
+         }
+
+         #d8 {
+            position: absolute;
+             right: -100px;
+            animation: myfirst 1.5s linear 2s infinite;
+         }
+      </style>
+   </head>
+   <body>
+    <div id="bk">
+      <div id="d1" class="leaf"></div>
+      <div id="d2" class="leaf"></div>
+      <div id="d3" class="leaf"></div>
+      <div id="d4" class="leaf"></div>
+      <div id="d5" class="leaf"></div>
+      <div id="d6" class="leaf"></div>
+      <div id="d7" class="leaf"></div>
+      <div id="d8" class="leaf"></div>
+    </div>
+    </body>
+</html>
+         
+
+                

@@ -1,0 +1,31 @@
+<%@ page language="java" import="java.util.*,java.io.*"
+contentType="text/html;charset=utf-8"%>
+<!DOCTYPE  html>
+<html  lang="zh-cn">
+ <head>
+   <title>编程器</title>
+   <style type="text/css">
+     [for="code"]{vertical-align:top;}
+     input{margin-left: 5px;}
+     p{text-indent:3.5em}
+   </style>
+   <script>
+     function fun()
+     {
+        var x=document.getElementById("x").value;
+        var y=document.getElementById("y").value;
+        var code=document.getElementById("code").value;
+        var newfun=new Function("x","y",code);
+        newfun(x,y);
+     }
+   </script>
+ </head>
+ <body>
+    <h1>编程器</h1>
+    <p>x:<input type="text" id="x"> </p>
+    <p>y:<input type="text" id="y"></p> 
+    <label for="code">program:</label>
+    <textarea id="code" name="code" rows="7" clos="20"></textarea>
+    <p><input type="button"  value="运行" onclick="fun()"></p>
+ </body>
+</html>

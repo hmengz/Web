@@ -1,0 +1,27 @@
+<%@ page language="java" import="java.util.*,java.io.*"
+contentType="text/html;charset=utf-8"%>
+<!DOCTYPE  html>
+<html  lang="zh-cn">
+<head>
+<title>计算器</title>
+<style>
+  input {width:5em}
+</style>
+</head>
+<body>
+  <h1>计算器</h1>
+  <p><input type="text" id="num1"> +  <input type="text" id="num2"> =  <span id="result">?</span></p>
+  <input type="button"  value="计算" onclick="calc()">
+  <script>
+     function calc(){  
+        var x=parseFloat(document.getElementById("num1").value);
+        var y=parseFloat(document.getElementById("num2").value);
+        var result=x+y;
+        var tmp=document.getElementById("result");
+        tmp.innerHTML=result;
+
+     }
+  </script>
+</body>
+</html>
+

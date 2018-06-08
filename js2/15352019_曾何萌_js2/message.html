@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html  lang="zh-cn">
+<head>
+  <title>消息框</title>
+  <style>
+      * {font-family:"宋体"}
+       #msgbox1{
+        width: 250px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px;
+        box-shadow: black 2px 2px 2px;
+        background: white;
+        position:absolute;
+        z-index:3;
+      }
+      .msgtitle.msg{
+        display: inline;
+        float:left;
+        text-align: center;
+        height: 100%;
+      }
+      .msgclose.msg{
+        display: inline;
+        float: right;
+        width: 20px;
+        height: 100%;
+        text-align: center;
+        background: rgb(150,150,150);
+      }
+      .msgheader.msg{
+        padding-left: 5px;
+        height: 20px;
+        vertical-align: middle;
+        background: rgb(210,210,210);
+        border-bottom: solid black 1px;
+      }   
+      .btns{
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .btns>input{
+        display: block;
+        width: 100px;
+        margin: 0 auto;
+      }
+      .msgcontent.msg{
+        margin: 10px 5px;
+      }
+      #shadow {
+        position:absolute;
+        display:block;
+        top:0;
+        left:0;
+        z-index:2;
+        background: rgb(210,210,210);
+        opacity:0.3;
+      }
+  </style>
+</head>
+<body onresize="pos()">  
+  <h1>消息框</h1>
+  <script>  
+  	  var flag;
+      window.onload=function(){
+    	  flag=true;
+        hideMsgBox("msgbox1");
+      }
+     function showMsgBox(boxId,title, msg){
+    	flag=false;
+    	showShadow();
+        var box=document.getElementById(boxId);
+        box.style.display="inline";
+        var _title=document.getElementsByClassName("msgtitle")[0];
+        var content=document.getElementsByClassName("msgcontent")[0];
+        _title.innerHTML=title;
+        content.innerHTML=msg;
+        pos();
+     }
+     function hideMsgBox(boxId){
+    	flag=true;
+        hideShadow();
+        var box=document.getElementById(boxId);
+        box.style.display="none";
+     }
+
+     function showShadow(){
+       var shadow=document.getElementById("shadow");
+       shadow.style.width= ""+document.documentElement.scrollWidth+"px";
+       shadow.style.height=""+document.documentElement.scrollHeight+"px";
+       shadow.style.display="block";
+     }
+
+    function hideShadow(){
+       var shadow=document.getElementById("shadow");
+       shadow.style.display="none";
+    }
+ 
+     function pos(){
+    	 if(flag==false) {
+    		 showShadow();
+             var msgbox=document.getElementById("msgbox1");
+             msgbox.style.left = (document.documentElement.clientWidth/2-msgbox.clientWidth/2)+"px"
+             msgbox.style.top = (document.documentElement.clientHeight/2-msgbox.clientHeight/2)+"px"
+    	 } 
+     }
+
+     function check(){
+        var input=document.getElementById("name");
+        if(input.value==""){
+          showMsgBox("msgbox1","错误信息","姓名不能为空");
+        }
+        else{
+          showMsgBox("msgbox1","姓名",input.value);
+        }
+     }
+
+  </script>
+  
+  <div id="shadow">
+  </div>
+  <div id="msgbox1" class="msg msgbox">
+      <div class="msgheader msg">
+          <div class="msgtitle msg">这是标题</div>
+          <div class="msgclose msg" onclick="hideMsgBox('msgbox1')">X</div>
+      </div>
+      <div class="msgcontent msg">这是内容
+      </div>
+      <div class="btns">
+           <input type="button" class="ok" value="OK"  onclick="hideMsgBox('msgbox1')">
+      </div>
+  </div>
+  
+      姓名：
+  <input type="text" id="name">
+  <input type="button" onclick="check()" value="check">
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX-post</title>
+  <style>
+    p {font-size:20px}
+  </style>
+  <script type="text/javascript">
+    function post(){
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(){
+          if(xmlhttp.readyState==4){
+            if(xmlhttp.status>=200&&xmlhttp.status<300||xmlhttp.status==304){
+              var oTest=document.getElementById("t4");
+              oTest.innerHTML=xmlhttp.responseText;
+            }else {
+              alert("error");
+            }
+          };
+        };
+        var t1=document.getElementById("t1").value;
+        var t2=document.getElementById("t2").value;
+        var url="t1="+t1+"&t2="+encodeURIComponent(t2);//ÖÐÎÄ
+        xmlhttp.open("post","post.jsp?"+url,true);
+        xmlhttp.send(null);
+      }
+  </script>
+</head>
+<body>
+  <h1>Ajax-post</h1>
+  <p>id£º<input id="t1" type="text"></p>
+  <p>ÐÕÃû£º<input id="t2" type="text"></p>
+  <p><span id="t4"></span></p>
+  <script>
+        var t2=document.getElementById("t2");
+        t2.addEventListener("blur",post);
+  </script>
+</body>
+</html>

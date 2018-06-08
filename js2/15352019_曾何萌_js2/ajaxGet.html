@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX-get</title>
+  <style>
+     p {font-size:20px}
+   </style>
+   <script type="text/javascript">
+	   	function get(){
+				var t=document.getElementById("t2");
+				t.innerHTML="正在查询中...";
+				var xmlhttp=new XMLHttpRequest();
+				xmlhttp.onreadystatechange=function(){
+					if(xmlhttp.readyState==4){
+						if(xmlhttp.status>=200&&xmlhttp.status<300||xmlhttp.status==304){
+							alert(xmlhttp.responseText);
+							var oTest=document.getElementById("t2");
+							oTest.innerHTML=xmlhttp.responseText;
+						}else {
+							var oTest=document.getElementById("t2");
+							oTest.innerHTML="[无]";
+							alert("error");
+						}
+					};
+				};
+				var sid=document.getElementById("t1").value;
+				xmlhttp.open("get","get.jsp?sid="+sid,true);
+				xmlhttp.send(null);
+			}
+	  </script>
+</head>
+<body>
+  <h1>Ajax-get</h1>
+  <p>id：<input id="t1" type="text"></p>
+  <p id="t2">[无]</p>
+  
+  <script>
+  	var t1=document.getElementById("t1");
+  	t1.addEventListener("blur",get);
+  </script>
+</body>
+</html>

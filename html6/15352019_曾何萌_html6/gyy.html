@@ -1,0 +1,42 @@
+﻿<!DOCTYPE  html>
+<html lang="zh-cn">
+   <head>
+      <meta charset="utf-8"/>
+      <title>This is my title</title>
+      <style>
+          #container {
+             width:500px;
+             height:700px;
+             margin:10px auto;
+             padding:1px;
+             background-image: url('images/gyy_yd.jpg');
+          }
+          #d1{
+              border: solid 2px blue;
+              width: 340px;
+              margin: 200px auto;
+              padding: auto;
+              transform: rotateZ(-45deg) scale(0.8);;
+              animation: anno 3s ease-in-out infinite;
+          }
+          #profile { 
+             width:340px;
+          }
+
+          @keyframes anno {
+           0% {opacity: 0;transform: rotateZ(0deg) scale(0.2);}
+           50% {opacity: 0.1;transform: rotateZ(157deg) scale(0.6);}
+           100% {opacity: 1;transform: rotateZ(315deg) scale(0.8);}
+         }
+       
+      </style>
+   </head>
+   <body>
+      <div id="container">
+         <div id="d1">
+            <img id="profile" src="images/gyy_profile.jpg">
+         </div>
+      </div>
+    </body>
+</html>
+            

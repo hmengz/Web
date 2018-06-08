@@ -1,0 +1,30 @@
+<!DOCTYPE  html>
+<html  lang="zh-cn">
+<head>
+<title>计时器1</title>
+  <style> 
+     span {text-decoration:underline;}
+     span:hover {cursor:pointer}
+  </style>
+  <script>
+     var t = 0.00;
+     function hello() {
+        t++;
+        var ctrl = document.getElementById("timer");
+        ctrl.innerHTML = t/100;
+        window.setTimeout(hello, 10);   //10ms
+      }    
+     window.onload=function(){
+        document.getElementById("start").onclick= function(){
+          window.setTimeout(hello, 10);  //10ms
+        }
+      }
+  </script>
+</head>
+<body>
+  <h1>计时器1</h1>
+  <div><span id="start">启动</span></div>
+  <div id="timer">0.00</div>
+</body>
+</html>
+

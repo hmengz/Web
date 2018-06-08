@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <title>slides</title>
+    <style>
+        #slideMain {            
+            margin: 0 auto;
+            width:800px;
+            overflow: hidden;
+        }
+        .slides {
+            width: 800px;
+            position: relative;
+            margin: 20px auto;
+            animation: slide 10s infinite;
+            white-space: nowrap;
+            animation: myfirst 10s infinite;
+        }
+        .slide {
+            width:800px; 
+            margin: 0 -4px;
+            display: inline-block;
+        }
+
+        @keyframes myfirst { 
+            0%{left: 0}
+            25% { left: -800px; }
+            50% { left: -1600px; }
+            75% { left: -2400px; }
+            100%{left:-3200px;}
+        }
+  
+    </style>
+</head>
+<body>
+    <div id="slideMain">
+         <div class="slides">
+            <img class="slide" src="images/img11.jpg"/>
+            <img class="slide" src="images/img12.jpg"/>
+            <img class="slide" src="images/img13.jpg"/>
+            <img class="slide" src="images/img14.jpg"/>
+            <img class="slide" src="images/img11.jpg"/>
+         </div>
+    </div>
+</body>
+</html>
